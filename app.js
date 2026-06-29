@@ -1,0 +1,31 @@
+(function () {
+  if (typeof gsap === 'undefined') return;
+
+  gsap.from('.hero h1', {
+    opacity: 0,
+    y: 40,
+    duration: 1.2,
+    ease: 'power3.out'
+  });
+
+  gsap.from('.hero-sub', {
+    opacity: 0,
+    y: 24,
+    duration: 1,
+    delay: 0.2,
+    ease: 'power3.out'
+  });
+
+  gsap.utils.toArray('.chapter').forEach(function (section) {
+    gsap.from(section, {
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 80%'
+      },
+      opacity: 0,
+      y: 40,
+      duration: 1,
+      ease: 'power3.out'
+    });
+  });
+})();
